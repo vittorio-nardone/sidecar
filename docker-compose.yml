@@ -11,7 +11,7 @@ services:
     image: "redis:alpine"
   refresh:
     build: ./Refresh
-    command: sh -c "cd /sidecar ; watch -n 60 git pull"    
+    command: sh -c "cd /sidecar ; git config pull.ff only ; watch -n 60 git pull"    
     volumes:
       - sidecar:/sidecar
 volumes:
