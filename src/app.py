@@ -20,5 +20,5 @@ def get_hit_count():
 @app.route('/')
 def hello():
     count = get_hit_count()
-    return render_template('/sidecar/templates/index.html', counter=count)
+    return render_template('index.html', counter=count)
     
