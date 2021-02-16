@@ -1,7 +1,7 @@
 import time
 
 import redis
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 cache = redis.Redis(host='redis', port=6379)
@@ -20,5 +20,5 @@ def get_hit_count():
 @app.route('/')
 def hello():
     count = get_hit_count()
-    return 'Hello World! This is a Sidecar container example ({} times loaded).\n'.format(count)
+    return render_template('templates/index.html', counter=count)
     
